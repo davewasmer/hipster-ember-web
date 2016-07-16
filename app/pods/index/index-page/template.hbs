@@ -1,0 +1,23 @@
+<div class="welcome">
+  <div class="welcome-tile">
+    <h1 class="headline">hipster ember</h1>
+    <h2 class="subhead">
+      A website with tips for building <strong>artisanal, grass-fed</strong>
+      web applications.
+    </h2>
+    <small class="summary">
+      Now serving {{model.tips.length}} organic, cruelty free tips from only
+      the finest locally sourced Emberinos.
+    </small>
+  </div>
+  <div class="errata-links">
+    {{#link-to 'about' class='errata-link'}}about{{/link-to}}
+    {{#link-to 'imprint' class='errata-link'}}imprint{{/link-to}}
+    {{#link-to 'submit' class='errata-link'}}submit a tip{{/link-to}}
+    {{#link-to 'login' class='errata-link'}}login{{/link-to}}
+  </div>
+</div>
+
+{{#each model.tips as |tip|}}
+  {{index/index-page/tip tip=tip}}
+{{/each}}
