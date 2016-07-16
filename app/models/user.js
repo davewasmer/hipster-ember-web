@@ -7,6 +7,7 @@ export default Model.extend({
   email: attr('string'),
   firstName: attr('string'),
   lastName: attr('string'),
+  username: attr('string'),
 
   canConfirm: attr('boolean'),
   isAdmin: attr('boolean'),
