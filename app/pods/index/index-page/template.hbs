@@ -6,7 +6,7 @@
       web applications.
     </h2>
     <small class="summary">
-      Now serving {{model.tips.length}} organic, cruelty free tips from only
+      Now serving {{tips.length}} organic, cruelty free tips from only
       the finest locally sourced Emberinos.
     </small>
   </div>
@@ -18,6 +18,6 @@
   </div>
 </div>
 
-{{#each model.tips as |tip|}}
+{{#each tips as |tip|}}
   {{index/index-page/tip tip=tip}}
 {{/each}}
