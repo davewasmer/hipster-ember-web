@@ -6,6 +6,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
+  this.route('tip', { path: '/tips/:id' });
+  this.route('admin');
+
 });
 
 export default Router;
