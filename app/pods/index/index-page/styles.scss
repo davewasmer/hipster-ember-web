@@ -1,34 +1,60 @@
 & {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 15vh;
 }
 
 .welcome {
-
+  flex: 0 0 50%;
+  padding: 0 1em 2em 1em;
 }
 
 .welcome-tile {
-
+  padding: 2em;
+  border-radius: 3px;
+  background-color: #e26350;
+  color: #fff;
 }
 
 .headline {
-
+  margin: 0.5em 0;
+  font-family: 'Pacifico';
+  font-size: 4.3em;
+  line-height: 1;
 }
 
 .subhead {
-
+  font-weight: 400;
 }
 
 .summary {
-
+  font-size: 0.9em;
 }
 
 .errata-links {
-
+  display: flex;
 }
 
-.tip {
+.errata-link {
+  display: block;
+  padding: 0.5em;
+  color: #e26350;
+  text-decoration: none;
 
+  &:hover {
+    color: darken(#e26350, 10%);
+    text-decoration: underline;
+  }
+
+  &.login {
+    margin-left: auto;
+  }
+}
+
+.tip-item {
+  display: flex;
+  flex: 0 1 25%;
+  padding: 0 1em 2em 1em;
 }

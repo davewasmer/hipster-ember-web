@@ -14,10 +14,12 @@
     {{#link-to 'about' class='errata-link'}}about{{/link-to}}
     {{#link-to 'imprint' class='errata-link'}}imprint{{/link-to}}
     {{#link-to 'submit' class='errata-link'}}submit a tip{{/link-to}}
-    {{#link-to 'login' class='errata-link'}}login{{/link-to}}
+    {{#link-to 'login' class='errata-link login'}}login{{/link-to}}
   </div>
 </div>
 
 {{#each tips as |tip|}}
-  {{index/index-page/tip tip=tip}}
+  <div class='tip-item'>
+    {{index/index-page/tip tip=tip}}
+  </div>
 {{/each}}

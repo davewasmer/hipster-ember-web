@@ -1,4 +1,18 @@
 body {
-  font-family: Helvetica;
+  // https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+  font-family: -apple-system, BlinkMacSystemFont,
+              "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+              "Helvetica Neue", sans-serif;
+  font-size: 14px;
   color: $text;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }

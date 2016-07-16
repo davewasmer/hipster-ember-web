@@ -1,3 +1,10 @@
+@import 'bower_components/breakpoint-sass/stylesheets/breakpoint';
+
+$sm: 425px;
+$md: 768px;
+$lg: 1440px;
+$xl: 2480px;
+
 * {
   box-sizing: border-box;
 }
@@ -9,4 +16,22 @@ html, body {
 body, body > .ember-view {
   display: flex;
   flex: 1 auto;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+
+  @include breakpoint($sm) {
+    max-width: $sm;
+  }
+
+  @include breakpoint($md) {
+    max-width: $md;
+  }
+
+  @include breakpoint($lg) {
+    max-width: $lg;
+  }
 }
