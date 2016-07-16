@@ -15,4 +15,4 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
-.fontcustom-manifest.json
+.env
