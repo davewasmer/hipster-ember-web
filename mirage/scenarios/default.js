@@ -1,7 +1,6 @@
 import { faker } from 'ember-cli-mirage';
 
 export default function(server) {
-
   let users = server.createList('user', 30);
   let tips = server.createList('tip', 20, {
     author: faker.list.random(...users)
@@ -12,6 +11,6 @@ export default function(server) {
   });
   server.createList('confirmation', 35, {
     tip: faker.list.cycle(...tips),
-    confirmer: faker.list.random(...users.where({ canConfirm: true }))
+    confirmer: faker.list.random(...users.filter((user) => user.canConfirm))
   });
 }
