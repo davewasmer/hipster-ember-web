@@ -4,7 +4,7 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
 
-  tip: belongsTo('vote', { async: true }),
-  voter: belongsTo('user', { async: true })
+  tip: belongsTo('tip', { async: true }),
+  confirmer: belongsTo('user', { async: true })
 
 });

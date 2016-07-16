@@ -1,0 +1,14 @@
+{{#liquid-tether
+  to=name
+  target="document.body"
+  targetModifier="visible"
+  attachment="middle center"
+  overlayClass="modal-backdrop"
+  on-overlay-click="dismiss"
+}}
+<div class="{{cssScope}}">
+  <div class="modal-dialog">
+    {{yield}}
+  </div>
+</div>
+{{/liquid-tether}}

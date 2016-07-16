@@ -2,8 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  beforeModel() {
-    this.transitionTo('tips');
+  model() {
+    return {
+      tips: this.store.findAll('tip')
+    }
   }
 
 });

@@ -1,6 +1,13 @@
 <div class="main">
   <div class="number">Tip #{{tip.number}}</div>
-  <h3 class="title">{{tip.title}}</h3>
+  <h3 class="title">
+    {{#link-to 'tip' tip.id}}
+      {{tip.title}}
+    {{/link-to}}
+  </h3>
+  {{#if showDescription}}
+    <div class="description">{{tip.description}}</div>
+  {{/if}}
   <div class="reported-by">Reported by @{{tip.author.username}}</div>
   <div class="confirmations">Confirmed by {{tip.confirmations.length}} core team members</div>
 </div>

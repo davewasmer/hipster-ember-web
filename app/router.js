@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('tip', { path: '/tips/:id' });
+  this.route('tips', function() {
+    this.route('tip', { path: '/:id', resetNamespace: true });
+  });
   this.route('submit');
   this.route('login');
 

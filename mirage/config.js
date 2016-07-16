@@ -3,6 +3,7 @@ import config from '../config/environment';
 export default function() {
 
   this.namespace = config.api.host;
+  this.logging = false;
 
   this.get('/tips');
   this.post('/tips');
