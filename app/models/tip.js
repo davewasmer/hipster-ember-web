@@ -12,9 +12,8 @@ export default Model.extend({
   description: attr('string'),
   link: attr('string'),
 
-  author: belongsTo('user', { async: true }),
-  votes: hasMany('vote', { async: true }),
-  confirmations: hasMany('confirmation', { async: true }),
+  author: belongsTo('user'),
+  votes: hasMany('vote'),
 
   upVotes: filterBy('votes', 'direction', 'up'),
   downVotes: filterBy('votes', 'direction', 'down')

@@ -9,11 +9,9 @@ export default Model.extend({
   lastName: attr('string'),
   username: attr('string'),
 
-  canConfirm: attr('boolean'),
   isAdmin: attr('boolean'),
 
-  votes: hasMany('vote', { async: true }),
-  confirmations: hasMany('confirmation', { async: true }),
-  tips: hasMany('tips', { async: true })
+  votes: hasMany('vote'),
+  tips: hasMany('tips')
 
 });
