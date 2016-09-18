@@ -5,10 +5,10 @@
   flex-direction: column;
   border: 1px solid $border;
   border-right-color: darken($border, 7%);
-  border-left-color: darken($border, 7%);
   border-bottom-color: darken($border, 13%);
+  border-left-color: darken($border, 7%);
   border-radius: 3px;
-  background-color: #fff;
+  background-color: $white;
 
   &.show-description {
     .title {
