@@ -1,25 +1,46 @@
-<div class="welcome">
-  <div class="welcome-tile">
-    <h1 class="headline">hipster ember</h1>
-    <h2 class="subhead">
-      Tips for building <strong>artisanal, grass-fed</strong>
-      web applications.
-    </h2>
-    <small class="summary">
-      Now serving {{tips.length}} organic, cruelty free tips from only
-      the finest locally sourced Emberinos.
-    </small>
+{{#liquid-bind sortedTips class='tips-list' enableGrowth=false as |tips|}}
+  <div class="welcome">
+    <div class="welcome-tile">
+      <h1 class="headline">hipster ember</h1>
+      <h2 class="subhead">
+        Tips for building <strong>artisanal, grass-fed</strong>
+        web applications.
+      </h2>
+      <small class="summary">
+        Now serving {{tips.length}} organic, cruelty free tips from only
+        the finest locally sourced Emberinos.
+      </small>
+    </div>
+    <div class="errata-links">
+      <div class="errata-group">
+        {{#link-to 'about' class='errata-link'}}about{{/link-to}}
+        {{#link-to 'imprint' class='errata-link'}}imprint{{/link-to}}
+        {{#link-to 'submit' class='errata-link'}}submit a tip{{/link-to}}
+      </div>
+      <span class="errata-divider">|</span>
+      <div class="errata-group">
+        {{#link-to (query-params sort='top') class='errata-link'}}top{{/link-to}}
+        {{#link-to (query-params sort='new') class='errata-link'}}new{{/link-to}}
+        {{#link-to (query-params sort='controversial') class='errata-link'}}controversial{{/link-to}}
+        {{#if session.isAuthenticated}}
+          <div class="logged-in">
+            <span class='username'>@{{session.currentUser.username}}</span>
+          </div>
+        {{else}}
+          <a class='errata-link login' {{action (action 'login')}}>login</a>
+        {{/if}}
+      </div>
+    </div>
   </div>
-  <div class="errata-links">
-    {{#link-to 'about' class='errata-link'}}about{{/link-to}}
-    {{#link-to 'imprint' class='errata-link'}}imprint{{/link-to}}
-    {{#link-to 'submit' class='errata-link'}}submit a tip{{/link-to}}
-    {{#link-to 'login' class='errata-link login'}}login{{/link-to}}
-  </div>
-</div>
 
-{{#each tips as |tip|}}
-  <div class='tip-item'>
-    {{ui/tip-card tip=tip}}
-  </div>
-{{/each}}
+  {{#each tips as |tip|}}
+    <div class='tip-item' data-tip-id={{tip.id}}>
+      {{ui/tip-card tip=tip}}
+    </div>
+  {{/each}}
+{{/liquid-bind}}
+
+{{#if isLoggingIn}}
+  {{#ui/modal-dialog parent=this name='login-modal'}}
+  {{/ui/modal-dialog}}
+{{/if}}

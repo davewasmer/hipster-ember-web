@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 const assert = Ember.assert;
 const computed = Ember.computed;
+const on = Ember.on;
+const observer = Ember.observer;
 
 export default Ember.Component.extend({
 
@@ -15,8 +17,18 @@ export default Ember.Component.extend({
     return `${ this.get('parentCSSScope') } ${ this.get('classNames.lastObject') }`;
   }),
 
+  preventBodyScroll: on('didInsertElement', function() {
+    Ember.$('body').addClass('no-scroll');
+  }),
+
+  willDestroyElement() {
+    Ember.$('body').removeClass('no-scroll');
+    this._super(...arguments);
+  },
+
   actions: {
     dismiss() {
+      console.log('dismiss');
       if (this.dismiss) {
         this.dismiss();
       }

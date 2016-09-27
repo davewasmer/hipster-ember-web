@@ -1,14 +1,10 @@
-{{#liquid-tether
-  to=name
-  target="document.body"
-  targetModifier="visible"
-  attachment="middle center"
-  overlayClass="modal-backdrop"
-  on-overlay-click="dismiss"
-}}
+{{#liquid-wormhole to=name}}
 <div class="{{cssScope}}">
-  <div class="modal-dialog">
-    {{yield}}
+  <div class="modal">
+    <div class="modal-backdrop" {{action (action 'dismiss')}}></div>
+    <div class="modal-dialog">
+      {{yield}}
+    </div>
   </div>
 </div>
-{{/liquid-tether}}
+{{/liquid-wormhole}}

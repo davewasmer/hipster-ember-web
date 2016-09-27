@@ -1,0 +1,35 @@
+& {
+  margin-bottom: 2em;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.avatar {
+  margin-right: 0.5em;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+  }
+}
+
+.username {
+  font-weight: 700;
+}
+
+.controls {
+  margin-left: auto;
+}
+
+.delete-btn {
+  @extend %btn-danger;
+}
+
+.text {
+  font-size: 1.2em;
+}

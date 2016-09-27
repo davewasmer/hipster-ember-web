@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'hipsterember',
@@ -10,13 +12,19 @@ module.exports = function(environment) {
 
     api: {
       host: process.env.API_HOST || 'http://localhost:3000'
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'github-oauth2': {
+          clientId: 'fbd152c099123f86102e'
+        }
+      }
     }
   };
 
   if (environment === 'development') {
-    ENV.contentSecurityPolicy = {
-      'style-src': "'self' 'unsafe-inline'"
-    };
   }
 
   if (environment === 'test') {
@@ -32,6 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.torii.providers['github-oauth2'].clientId = 'effb8282dcc82e0b6304';
   }
 
   return ENV;

@@ -1,0 +1,32 @@
+@mixin btn-base {
+  display: inline-block;
+  background-image: none;
+  padding: 0.4em 0.7em;
+  border: 1px solid rgba($black, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+%btn-danger {
+  @include btn-base;
+  $base: #de4848;
+  background-color: $base;
+  color: $white;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    background-color: darken($base, 5%);
+  }
+
+  &:active {
+    background-color: darken($base, 10%);
+  }
+}

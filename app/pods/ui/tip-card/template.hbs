@@ -1,21 +1,37 @@
 <div class="main">
-  <div class="number">Tip #{{tip.number}}</div>
+  <div class="header">
+    {{#if tip.isPending}}
+      <div class="status pending" title="This tip is awaiting moderator approval.">Pending</div>
+    {{else if tip.isRejected}}
+      <div class="status rejected" title="This tip was rejected by a moderator">Rejected</div>
+    {{/if}}
+    <div class="number">Tip #{{tip.number}}</div>
+  </div>
   <h3 class="title">
     {{#link-to 'tip' tip.id}}
       {{tip.title}}
     {{/link-to}}
   </h3>
-  {{#if showDescription}}
+  <div class="meta">
+    <div class="reported-by">Reported by @{{tip.author.username}}</div>
+    {{!--<div class="comment-count">{{pluralize tip.comments.length 'comment'}}</div> --}}
+  </div>
+  {{#if showDetails}}
     <div class="description">{{tip.description}}</div>
+    {{!--<div class="comments">
+      {{#each (sort-by 'createdAt' tip.comments) as |comment|}}
+        {{ui/comment-card comment=comment}}
+      {{/each}}
+    </div>
+    --}}
   {{/if}}
-  <div class="reported-by">Reported by @{{tip.author.username}}</div>
 </div>
 <div class="voting">
-  <div class="vote-up">
+  <div class="vote-up {{if votedUp 'active'}}" {{action (action 'voteUp')}}>
     <img src="/images/thumbs-up.svg" class="thumbs-up" alt="thumbs up">
     {{tip.upVotes.length}}
   </div>
-  <div class="vote-down">
+  <div class="vote-down {{if votedDown 'active'}}" {{action (action 'voteDown')}}>
     <img src="/images/thumbs-down.svg" class="thumbs-down" alt="thumbs down">
     {{tip.downVotes.length}}
   </div>

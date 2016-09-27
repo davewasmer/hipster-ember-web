@@ -1,0 +1,18 @@
+{{#ui/modal-dialog parent=this name='tip-modal' dismiss=(action 'close')}}
+  <div class="main">
+    {{#liquid-if tip.isNew class='submit-tip'}}
+      {{input class='title' value=tip.title placeholder='A short title for your tip'}}
+      {{textarea class='description' value=tip.description placeholder='A longer description - what is your tip, and why should people use it?'}}
+      <button type="button" class="submit" disabled={{isInvalid}} {{action (action 'submit')}}>Submit Tip</button>
+    {{else}}
+      <h2 class="confirmation-header">
+        Looks great!
+      </h2>
+      <div class="confirmation-message">
+        Your tip has been submitted for review. Once a moderator gives it a 👍
+        you should see it live!
+      </div>
+      {{#link-to 'tips' class='confirmation-link-back'}}Back to tips{{/link-to}}
+    {{/liquid-if}}
+  </div>
+{{/ui/modal-dialog}}

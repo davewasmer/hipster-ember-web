@@ -13,8 +13,5 @@ export default function(server) {
     voter: faker.list.random(...users),
     tip: faker.list.random(...tips)
   });
-  server.createList('confirmation', 35, {
-    tip: faker.list.cycle(...tips),
-    confirmer: faker.list.random(...users.filter((user) => user.canConfirm))
-  });
+  server.createList('comment', 15);
 }

@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import { animate, stop } from 'liquid-fire';
-import merge from 'lodash/object/merge';
 
 // Arguments:
 //

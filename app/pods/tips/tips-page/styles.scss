@@ -1,13 +1,21 @@
 & {
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: flex-start;
   margin-top: 15vh;
 }
 
+.tips-list {
+  display: flex;
+
+  > .liquid-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}
+
 .welcome {
-  flex: 0 0 50%;
+  flex: 1 0 50%;
   padding: 0 1em 2em 1em;
 }
 
@@ -21,8 +29,12 @@
 .headline {
   margin: 0.5em 0;
   font-family: 'Pacifico';
-  font-size: 4.3em;
+  font-size: 3em;
   line-height: 1;
+
+  @include breakpoint($lg) {
+    font-size: 4.3em;
+  }
 }
 
 .subhead {
@@ -36,6 +48,18 @@
 
 .errata-links {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+}
+
+.errata-group {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+
+  &:first-child {
+    flex-grow: 0;
+  }
 }
 
 .errata-link {
@@ -43,6 +67,7 @@
   padding: 0.5em;
   color: #e26350;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: darken(#e26350, 10%);
@@ -52,10 +77,41 @@
   &.login {
     margin-left: auto;
   }
+
+  &.active {
+    font-weight: 600;
+  }
+}
+
+.errata-divider {
+  display: none;
+  padding: 0.5em;
+  color: lighten(#e26350, 20%);
+
+  @include breakpoint($lg) {
+    display: block;
+  }
+}
+
+.logged-in {
+  margin-left: auto;
+  padding: 0.5em;
+}
+
+.username {
+  font-weight: 600;
 }
 
 .tip-item {
   display: flex;
-  flex: 0 1 25em;
+  flex: 0 1 100%;
   padding: 0 1em 2em 1em;
+
+  @include breakpoint($md) {
+    flex-basis: 50%;
+  }
+
+  @include breakpoint($lg) {
+    flex-basis: 25%;
+  }
 }

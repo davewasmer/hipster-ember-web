@@ -2,8 +2,8 @@
 
 $sm: 425px;
 $md: 768px;
-$lg: 1440px;
-$xl: 2480px;
+$lg: 1100px;
+$xl: 1440px;
 
 * {
   box-sizing: border-box;
@@ -33,5 +33,9 @@ body, body > .ember-view {
 
   @include breakpoint($lg) {
     max-width: $lg;
+  }
+
+  @include breakpoint($xl) {
+    max-width: $xl;
   }
 }
